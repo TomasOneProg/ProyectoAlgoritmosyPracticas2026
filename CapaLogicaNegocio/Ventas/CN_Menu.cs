@@ -23,28 +23,19 @@ namespace CapaLogicaNegocio.Ventas
         #endregion
 
         #region METODOS
-        public DataTable MostrarMenu()
-        {
-            return menu.Mostrar();
-        }
+        public DataTable MostrarMenu() { return menu.Mostrar(); }
 
-        public void InsertarMenu()
-        {
-            PasarDatos();
-            menu.InsertarMenu();
-        }
+        public void InsertarMenu() { PasarDatos(); IdMenu = menu.InsertarMenu(); }
 
-        public void ModificarMenu()
-        {
-            PasarDatos();
-            menu.ModificarMenu();
-        }
+        public void ModificarMenu() { PasarDatos(); menu.ModificarMenu(); }
 
-        public void EliminarMenu()
-        {
-            menu.IdMenu = IdMenu;
-            menu.EliminarMenu();
-        }
+        public void EliminarMenu() { menu.IdMenu = IdMenu; menu.EliminarMenu(); }
+
+        public DataTable ObtenerStockParaReceta() { return menu.ObtenerStockParaReceta(); }
+
+        public DataTable ObtenerReceta() { return menu.ObtenerReceta(IdMenu); }
+
+        public void GuardarReceta(DataTable receta) { menu.GuardarReceta(IdMenu, receta); }
 
         private void PasarDatos()
         {
