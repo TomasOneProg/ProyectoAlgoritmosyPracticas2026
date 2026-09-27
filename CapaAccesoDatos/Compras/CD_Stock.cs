@@ -37,7 +37,7 @@ namespace CapaAccesoDatos.Compras
         {
             string sSql = "UPDATE Stock SET " +
                 "IdProducto=" + IdProducto + ", NumeroLote='" + T(NumeroLote) + "', Cantidad=" + Cantidad +
-                ", FechaVencimiento=#" + Fecha() + "#, Precio=" + Num(Precio) + " " +
+                ", FechaVencimiento='" + Fecha() + "', Precio=" + Num(Precio) + " " +
                 "WHERE IdStock=" + IdStock;
             clsEjecutarComando Ejecutar = new clsEjecutarComando();
             Ejecutar.Ejecutar(sSql);
