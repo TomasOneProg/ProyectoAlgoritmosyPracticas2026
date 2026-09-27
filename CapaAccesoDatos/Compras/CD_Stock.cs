@@ -55,7 +55,7 @@ namespace CapaAccesoDatos.Compras
             return (valor ?? "").Replace("'", "''");
         }
 
-        // Formato de fecha no ambiguo para Access (yyyy-MM-dd)
+        // Formato de fecha ISO para SQL Server (yyyy-MM-dd)
         private string Fecha()
         {
             return FechaVencimiento.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
