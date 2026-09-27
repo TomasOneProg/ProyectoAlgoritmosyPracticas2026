@@ -12,7 +12,7 @@ namespace CapaAccesoDatos.Loguin
         clsEjecutarComando Ejecutar = new clsEjecutarComando();
         public void BloquearUser(string User)
         {
-            string SSql = "UPDATE Usuarios SET Usuarios.UsuarioDesactivado = true WHERE Usuarios.Usuario ='" + User +"'";
+            string SSql = "UPDATE Usuarios SET Usuarios.UsuarioDesactivado = 1 WHERE Usuarios.Usuario ='" + User +"'";
             Ejecutar.EjecucionDirecta(SSql);
         }
     }
