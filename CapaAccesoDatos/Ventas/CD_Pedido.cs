@@ -42,7 +42,7 @@ namespace CapaAccesoDatos.Ventas
             string sSql = "UPDATE Pedido SET " +
                 "NombreCliente='" + T(NombreCliente) + "', IdMenu=" + IdMenu + ", Cantidad=" + Cantidad +
                 ", FormaPago='" + T(FormaPago) + "', InstruccionesEspeciales='" + T(InstruccionesEspeciales) +
-                "', Estado='" + T(Estado) + "', PrecioTotal=" + Num(PrecioTotal) + ", Fecha=#" + FechaTxt() + "# " +
+                "', Estado='" + T(Estado) + "', PrecioTotal=" + Num(PrecioTotal) + ", Fecha='" + FechaTxt() + "' " +
                 "WHERE IdPedido=" + IdPedido;
             clsEjecutarComando Ejecutar = new clsEjecutarComando();
             Ejecutar.Ejecutar(sSql);
