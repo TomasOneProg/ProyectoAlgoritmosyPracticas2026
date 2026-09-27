@@ -94,7 +94,7 @@ namespace CapaAccesoDatos.Administrador
                 string sqlUsuario = "INSERT INTO Usuarios " +
                     "([Usuario], [Password], [IdPersona], [FechaAlta], [CambiaCada], [UsuarioDesactivado]) " +
                     "VALUES ('" + SqlTxt(Usuario.Trim()) + "','" + PasswordHash + "'," + idPersona +
-                    ",#" + fechaAlta + "#,90,False)";
+                    ",'" + fechaAlta + "',90,0)";
                 ejecutar.EjecucionDirecta(sqlUsuario);
 
                 int idUsuario = ObtenerMaxId(ejecutar, "Usuarios", "IdUsuario");
