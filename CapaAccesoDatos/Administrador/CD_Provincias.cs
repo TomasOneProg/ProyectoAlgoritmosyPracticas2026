@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using CapaComun;
-using System.Data.OleDb;
 using CapaAccesoDatos;
 using CapaAccesoDatos.Administrador;
 
