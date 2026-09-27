@@ -27,7 +27,7 @@ namespace CapaAccesoDatos
             { usuario = UserCache.Apellido + " " + UserCache.Nombres; }
 
             string sSQL = "INSERT INTO Bitacora (Fecha, Hora, IdUsuario, Usuario, Evento, Detalle, Origen) " +
-                "VALUES (#" + fecha + "#, '" + hora + "', " + IdUsuario + ", '" + SqlTxt(usuario) +
+                "VALUES ('" + fecha + "', '" + hora + "', " + IdUsuario + ", '" + SqlTxt(usuario) +
                 "', '" + SqlTxt(evento) + "', '" + SqlTxt(detalle) + "', '" + SqlTxt(origen) + "')";
 
             clsEjecutarComando Ejecutar = new clsEjecutarComando();
