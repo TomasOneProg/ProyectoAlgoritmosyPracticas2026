@@ -16,7 +16,7 @@ namespace CapaAccesoDatos.Ventas
         public DataTable PedidosDelDia()
         {
             string sSql = "SELECT IdPedido, NombreCliente, Cantidad, Estado, PrecioTotal, Fecha " +
-                "FROM Pedido WHERE Fecha >= Date() AND Fecha < Date() + 1 ORDER BY IdPedido DESC";
+                "FROM Pedido WHERE Fecha >= CAST(GETDATE() AS date) AND Fecha < DATEADD(day, 1, CAST(GETDATE() AS date)) ORDER BY IdPedido DESC";
             clsEjecutarComando ejecutar = new clsEjecutarComando();
             return ejecutar.Ejecutar(sSql);
         }
