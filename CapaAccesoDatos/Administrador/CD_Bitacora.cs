@@ -32,12 +32,12 @@ namespace CapaAccesoDatos.Administrador
 
             if (fechaDesde.HasValue)
             {
-                sSql += " AND Fecha >= #" + fechaDesde.Value.ToString("yyyy-MM-dd") + "#";
+                sSql += " AND Fecha >= '" + fechaDesde.Value.ToString("yyyy-MM-dd") + "'";
             }
 
             if (fechaHasta.HasValue)
             {
-                sSql += " AND Fecha <= #" + fechaHasta.Value.ToString("yyyy-MM-dd") + "#";
+                sSql += " AND Fecha <= '" + fechaHasta.Value.ToString("yyyy-MM-dd") + "'";
             }
 
             sSql += " ORDER BY Fecha DESC, Hora DESC";
