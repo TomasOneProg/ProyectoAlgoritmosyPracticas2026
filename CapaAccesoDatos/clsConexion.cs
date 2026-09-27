@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.OleDb;
+using System;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace CapaAccesoDatos
 {
@@ -13,12 +10,19 @@ namespace CapaAccesoDatos
 
         public clsConexion()
         {
-            cadena = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|Loguin.accdb";
+            var configuracion = ConfigurationManager.ConnectionStrings["SistemaLoguin"];
+            if (configuracion == null || string.IsNullOrWhiteSpace(configuracion.ConnectionString))
+            {
+                throw new ConfigurationErrorsException(
+                    "No se encontró la cadena de conexión 'SistemaLoguin' en el archivo de configuración.");
+            }
+
+            cadena = configuracion.ConnectionString;
         }
 
-        protected OleDbConnection GetConexion()
+        protected SqlConnection GetConexion()
         {
-            return new OleDbConnection(cadena);
+            return new SqlConnection(cadena);
         }
     }
 }
