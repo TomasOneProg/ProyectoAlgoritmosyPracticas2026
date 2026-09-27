@@ -28,7 +28,7 @@ namespace CapaAccesoDatos.Compras
         {
             string sSql = "INSERT INTO Stock " +
                 "(IdProducto, NumeroLote, Cantidad, FechaVencimiento, Precio) VALUES (" +
-                IdProducto + ",'" + T(NumeroLote) + "'," + Cantidad + ",#" + Fecha() + "#," + Num(Precio) + ")";
+                IdProducto + ",'" + T(NumeroLote) + "'," + Cantidad + ",'" + Fecha() + "'," + Num(Precio) + ")";
             clsEjecutarComando Ejecutar = new clsEjecutarComando();
             Ejecutar.Ejecutar(sSql);
         }
