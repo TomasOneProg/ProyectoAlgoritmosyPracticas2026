@@ -8,8 +8,8 @@ namespace CapaDatos
     public class clsPermisos : clsConexion
     {
         private const string FiltroUsuarioActivo =
-            " AND ISNULL(PermisosUsuarios.FechaBaja) " +
-            " AND iif(NOT ISNULL(PermisosUsuarios.AltaProvisoria), PermisosUsuarios.AltaProvisoria >= date(), ISNULL(PermisosUsuarios.AltaProvisoria)) ";
+            " AND PermisosUsuarios.FechaBaja IS NULL " +
+            " AND (PermisosUsuarios.AltaProvisoria IS NULL OR PermisosUsuarios.AltaProvisoria >= CAST(GETDATE() AS date)) ";
 
         public bool Permisos(int idUser)
         {
@@ -54,8 +54,9 @@ namespace CapaDatos
         private bool CargarPermisosPorGrupo(int idUser)
         {
             string sSql = "SELECT Permisos.IdPermiso, Permisos.Funcionalidad " +
-                "FROM ((UsuariosGrupos INNER JOIN PermisosGrupos ON UsuariosGrupos.IdGrupo = PermisosGrupos.IdGrupo) " +
-                "INNER JOIN Permisos ON PermisosGrupos.IdPermiso = Permisos.IdPermiso) " +
+                "FROM UsuariosGrupos " +
+                "INNER JOIN PermisosGrupos ON UsuariosGrupos.IdGrupo = PermisosGrupos.IdGrupo " +
+                "INNER JOIN Permisos ON PermisosGrupos.IdPermiso = Permisos.IdPermiso " +
                 "WHERE UsuariosGrupos.IdUsuario = " + idUser;
 
             clsEjecutarComando ejecutar = new clsEjecutarComando();
