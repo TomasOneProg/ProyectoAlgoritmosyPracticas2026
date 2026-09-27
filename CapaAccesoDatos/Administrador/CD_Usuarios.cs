@@ -65,7 +65,7 @@ namespace CapaAccesoDatos.Administrador
         public DataTable Mostrar()
         {
              string sSql;
-             sSql = "Select * from Usuario ";
+             sSql = "SELECT * FROM Usuarios";
              clsEjecutarComando Ejecutar = new clsEjecutarComando();
              return Ejecutar.Ejecutar(sSql);  
             
@@ -76,10 +76,10 @@ namespace CapaAccesoDatos.Administrador
         {
             string sSql = "INSERT INTO Usuarios " +
                "(Usuario, Password, IdPersona, FechaAlta, FechaBaja, CambiaCada, FechaUltimoCambio, UsuarioDesactivado, FechaDesactivacion) " +
-                "values" +
-                " ('" + usuario + "','" + password + "'," + idPersona + "," + fechaAlta +
-                ",'" +fechaBaja + "','" + cambiaCada + "','" + fechaUltimoCambio + "','" + usuarioDesactivado +
-                "','" + fechaDesactivacion + ")";
+                "VALUES ('" + usuario + "','" + password + "'," + idPersona + ",'" +
+                fechaAlta.ToString("yyyy-MM-dd") + "','" + fechaBaja.ToString("yyyy-MM-dd") + "'," + cambiaCada +
+                ",'" + fechaUltimoCambio.ToString("yyyy-MM-dd") + "'," + (usuarioDesactivado ? "1" : "0") +
+                ",'" + fechaDesactivacion.ToString("yyyy-MM-dd") + "')";
             clsEjecutarComando Ejecutar = new clsEjecutarComando();
             Ejecutar.Ejecutar(sSql);
         }
@@ -89,9 +89,11 @@ namespace CapaAccesoDatos.Administrador
         {
             string sSql = "UPDATE Usuarios set " +
                 "Usuario='" + usuario + "', Password='" + password  + "', IdPersona =" + idPersona  +
-                ", FechaAlta = " + fechaAlta  + ", FechaBaja = '" + fechaBaja + "', CambiaCada = '" + cambiaCada  +
-                "', FechaUltimoCambio = '" + fechaUltimoCambio + "', UsuarioDesactivado = '" + usuarioDesactivado + "', FechaDesactivacion = '" + FechaDesativacion +
-                " WHERE IdPersona =" + idUsuario;
+                ", FechaAlta = '" + fechaAlta.ToString("yyyy-MM-dd") + "', FechaBaja = '" + fechaBaja.ToString("yyyy-MM-dd") +
+                "', CambiaCada = " + cambiaCada + ", FechaUltimoCambio = '" + fechaUltimoCambio.ToString("yyyy-MM-dd") +
+                "', UsuarioDesactivado = " + (usuarioDesactivado ? "1" : "0") +
+                ", FechaDesactivacion = '" + FechaDesativacion.ToString("yyyy-MM-dd") +
+                "' WHERE IdUsuario =" + idUsuario;
             clsEjecutarComando Ejecutar = new clsEjecutarComando();
             Ejecutar.Ejecutar(sSql);
         }
