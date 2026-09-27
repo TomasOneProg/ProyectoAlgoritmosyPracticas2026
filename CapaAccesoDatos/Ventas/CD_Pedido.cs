@@ -32,7 +32,7 @@ namespace CapaAccesoDatos.Ventas
             string sSql = "INSERT INTO Pedido " +
                 "(NombreCliente, IdMenu, Cantidad, FormaPago, InstruccionesEspeciales, Estado, PrecioTotal, Fecha) VALUES (" +
                 "'" + T(NombreCliente) + "'," + IdMenu + "," + Cantidad + ",'" + T(FormaPago) + "','" +
-                T(InstruccionesEspeciales) + "','" + T(Estado) + "'," + Num(PrecioTotal) + ",#" + FechaTxt() + "#)";
+                T(InstruccionesEspeciales) + "','" + T(Estado) + "'," + Num(PrecioTotal) + ",'" + FechaTxt() + "')";
             clsEjecutarComando Ejecutar = new clsEjecutarComando();
             Ejecutar.Ejecutar(sSql);
         }
