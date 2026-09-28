@@ -50,7 +50,6 @@ namespace CapaVistaUsuario
             bitacoraToolStripMenuItem.Visible = admin || PermisosSistema.Tiene(PermisosSistema.Bitacora);
 
             mantenimientoToolStripMenuItem.Visible = admin || PermisosSistema.Tiene(PermisosSistema.Ubicaciones);
-            ubicacionesToolStripMenuItem.Visible = admin || PermisosSistema.Tiene(PermisosSistema.Ubicaciones);
 
             usuariosToolStripMenuItem.Visible = true;
             cambioDePasswordToolStripMenuItem.Visible = true;
@@ -85,7 +84,6 @@ namespace CapaVistaUsuario
             usuariosToolStripMenuItem.Text = Idioma.Texto("Usuarios");
             cambioDePasswordToolStripMenuItem.Text = Idioma.Texto("CambioPassword");
             mantenimientoDeUsuariosToolStripMenuItem.Text = Idioma.Texto("MantenimientoUsuarios");
-            ubicacionesToolStripMenuItem.Text = Idioma.Texto("Ubicaciones");
             salirToolStripMenuItem.Text = Idioma.Texto("Salir");
             facturacionToolStripMenuItem.Text = Idioma.Texto("Facturacion");
             ventasToolStripMenuItem.Text = Idioma.Texto("Ventas");
@@ -241,15 +239,6 @@ namespace CapaVistaUsuario
             //Loguin.frmCambioPassword fAux = new Loguin.frmCambioPassword();
             fAux.MdiParent = this;
             fAux.Show();
-        }
-
-        private void ubicacionesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!VerificarPermiso(PermisosSistema.Ubicaciones)) return;
-            Administrador.frmUbicaciones fAux = new Administrador.frmUbicaciones();
-            fAux.MdiParent = this;
-            fAux.Show();
-            //Hmmm que delicia
         }
 
         private void gestionDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
